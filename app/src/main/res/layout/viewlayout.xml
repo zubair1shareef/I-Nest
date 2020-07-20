@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+    android:orientation="vertical"
+
+    android:layout_marginBottom="5dp"
+    android:layout_centerInParent="true"
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="8dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp">
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/googleg_standard_color_18"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/namee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="username"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---" />
+
+        <TextView
+            android:id="@+id/rollnoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="date"
+            android:textSize="17dp" />
+
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/def2"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ddddee"
+        android:hint="hhere hint"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+</LinearLayout>
