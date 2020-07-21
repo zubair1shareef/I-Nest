@@ -71,6 +71,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_report_image"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button

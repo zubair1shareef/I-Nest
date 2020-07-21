@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference refe=FirebaseDatabase.getInstance().getReference().child("Rec");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Toast.makeText(MainActivity.this, na,
+        Toast.makeText(MainActivity.this,"loading...",
                 Toast.LENGTH_LONG).show();
         option=new FirebaseRecyclerOptions.Builder<Infom>().setQuery(refe,Infom.class).build();
         adapter=new FirebaseRecyclerAdapter<Infom, Myviewholder>(option) {

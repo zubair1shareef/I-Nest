@@ -170,7 +170,7 @@ String nam,rol,des,imageurl;
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
-                                    myRef.child("imageUrl").setValue(imageurl);
+
                                 }
                             })
 
