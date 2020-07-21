@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="date"
-            android:textSize="17dp" />
+            android:textSize="10dp"
+            android:layout_marginLeft="100dp"/>
 
 
 

@@ -1,13 +1,16 @@
 package com.example.recylerview;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.icu.text.DateFormat;
 import android.icu.text.IDNA;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -26,6 +29,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class Main2Activity extends AppCompatActivity {
@@ -44,7 +49,7 @@ String nam,rol,des,imageurl;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         name=(EditText) findViewById(R.id.Name);
-        rollno=(EditText) findViewById(R.id.Rollno);
+        //rollno=(EditText) findViewById(R.id.Rollno);
         decp=(EditText) findViewById(R.id.descp);
         imageup=(ImageView) findViewById(R.id.imageView2);
         storage = FirebaseStorage.getInstance();
@@ -106,17 +111,11 @@ String nam,rol,des,imageurl;
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void push(View v)
-    {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Rec");
-        nam=name.getText().toString();
-        rol=rollno.getText().toString();
-        des=decp.getText().toString();
+    { uploadimage();
+    pushtodatabse();
 
-        Infom info=new Infom(nam,rol,des,imageurl);
-        String key = myRef.push().getKey();
-        myRef.child(key).setValue(info);
 
 
 
@@ -124,10 +123,21 @@ String nam,rol,des,imageurl;
 
 
     }
-    public void upload(View v)
-    {
-        uploadimage();
-    }
+public  void pushtodatabse(){
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Rec");
+    nam=name.getText().toString();
+    //rol=rollno.getText().toString();
+    des=decp.getText().toString();
+
+    String  currentDateTimeString = DateFormat.getDateTimeInstance()
+            .format(new Date());
+
+    Infom info=new Infom(nam,currentDateTimeString,des,imageurl);
+    String key = myRef.push().getKey();
+    myRef.child(key).setValue(info);
+
+}
 
 
 
@@ -170,6 +180,7 @@ String nam,rol,des,imageurl;
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
+                                    pushtodatabse();
 
                                 }
                             })
