@@ -16,13 +16,14 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseRecyclerOptions<Infom> option;
     private FirebaseRecyclerAdapter<Infom, Myviewholder> adapter;
     private RecyclerView recyclerView;
-    String na,ro,de;
+    String na,ro,de,im;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         na=in.getName();
         ro=in.getRollno();
         de=in.getDescp();
+        im=in.getImage();
         recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference refe=FirebaseDatabase.getInstance().getReference().child("Rec");
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                  myviewholder.name.setText(infom.getName());
                  myviewholder.rollno.setText(infom.getRollno());
                  myviewholder.desp.setText(infom.getDescp());
+                 Picasso.get().load(infom.getImage()).into(myviewholder.imageView);
             }
 
             @NonNull

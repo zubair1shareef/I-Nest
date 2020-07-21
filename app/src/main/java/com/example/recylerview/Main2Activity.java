@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -30,7 +31,7 @@ import java.util.UUID;
 public class Main2Activity extends AppCompatActivity {
 EditText name,rollno,decp;
 ImageView imageup;
-String nam,rol,des;
+String nam,rol,des,imageurl;
 
     private Uri filePath;
 
@@ -112,7 +113,8 @@ String nam,rol,des;
         nam=name.getText().toString();
         rol=rollno.getText().toString();
         des=decp.getText().toString();
-        Infom info=new Infom(nam,rol,des);
+
+        Infom info=new Infom(nam,rol,des,imageurl);
         String key = myRef.push().getKey();
         myRef.child(key).setValue(info);
 
@@ -152,24 +154,23 @@ String nam,rol,des;
 
             // adding listeners on upload
             // or failure of image
-            ref.putFile(filePath)
-                    .addOnSuccessListener(
-                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            ref.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 
                                 @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot)
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                                 {
 
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
+                                    Task<Uri> uriTask=taskSnapshot.getStorage().getDownloadUrl();
+                                    while(!uriTask.isComplete());
+                                    Uri urlImage=uriTask.getResult();
+                                    imageurl=urlImage.toString();
                                    progressDialog.dismiss();
                                     Toast
                                             .makeText(Main2Activity.this,
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
-                                    myRef.child("imageUrl").setValue(filePath.toString());
+                                    myRef.child("imageUrl").setValue(imageurl);
                                 }
                             })
 
