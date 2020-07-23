@@ -60,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/def2"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,5 +70,26 @@
         android:id="@+id/ddddee"
         android:hint="hhere hint"
         android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       >
+       <Button
+           android:layout_width="80dp"
+           android:layout_height="39dp"
+           android:text="fire"
+
+           />
+       <Button
+           android:layout_width="80dp"
+           android:layout_height="39dp"
+
+
+           android:text="report"
+           android:layout_marginLeft="200dp"/>
+   </LinearLayout>
+
 
 </LinearLayout>

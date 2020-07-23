@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/world"
+        android:title="World"
+        android:icon="@drawable/ic_world"/>
+    <item
+        android:id="@+id/local"
+        android:title="Local"
+        android:icon="@drawable/ic_location_local"/>
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person_outline_black_24dp"/>
+
+
+</menu>

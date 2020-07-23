@@ -3,6 +3,7 @@ package com.example.recylerview;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -34,6 +36,45 @@ public class MainActivity extends AppCompatActivity {
         ro=in.getRollno();
         de=in.getDescp();
         im=in.getImage();
+
+
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
+        bottomNavigationView.setSelectedItemId(R.id.world);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.world:
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.local:
+                        startActivity(new Intent(getApplicationContext(),Local.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.search:
+                        startActivity(new Intent(getApplicationContext(),Search.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+
+                return false;
+            }
+        });
+
+
+
+
+
+
+
         recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference refe=FirebaseDatabase.getInstance().getReference().child("Rec");
