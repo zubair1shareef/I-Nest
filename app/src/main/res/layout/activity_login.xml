@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        android:background="@drawable/image"
+        tools:srcCompat="@drawable/image"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="150dp"
+        android:textSize="30dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="330dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext"
+        android:hint="enter username" />
+
+    <EditText
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="390dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext"
+        android:hint="enter username" />
+
+    <Button
+        android:layout_width="190dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/button"
+        android:onClick="login"
+        android:text="login" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="10dp"
+            android:text="dont have account "
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="10dp"
+            android:text="Sign up "
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="18dp" />
+
+
+    </LinearLayout>
+</RelativeLayout>
