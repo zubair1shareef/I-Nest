@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/back6"
     tools:context=".Signup">
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/top"
+        android:onClick="signup"
+        android:layout_alignParentLeft="true"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -53,7 +61,7 @@
             android:layout_width="290dp"
             android:layout_height="45dp"
 
-            android:layout_marginTop="40dp"
+
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
             android:hint="enter username"
@@ -63,7 +71,7 @@
             android:layout_width="290dp"
             android:layout_height="45dp"
 
-            android:layout_marginTop="40dp"
+
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
             android:hint="enter username"
@@ -93,7 +101,7 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginLeft="110dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="115dp"
             android:background="@drawable/top"
             android:onClick="signup" />
 

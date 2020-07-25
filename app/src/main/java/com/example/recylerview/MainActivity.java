@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                 }
+                finish();
 
 
                 return false;
@@ -102,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.startListening();
         recyclerView.setAdapter(adapter);
 
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
     }
     public void add(View v)
     {
