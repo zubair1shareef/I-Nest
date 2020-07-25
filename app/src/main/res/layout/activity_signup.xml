@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Login">
+    tools:context=".Signup">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,27 +15,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
             android:text="Welcome"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
 
             android:textSize="50dp" />
+
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/nest"
-            android:layout_marginLeft="50dp"/>
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/nest" />
 
 
     </LinearLayout>
 
 
-
-
     <LinearLayout
         android:layout_width="430dp"
-        android:layout_height="350dp"
+        android:layout_height="490dp"
         android:layout_centerInParent="true"
         android:background="@drawable/union"
         android:orientation="vertical"
@@ -45,9 +45,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
-            android:text="LOGIN"
+            android:text="SIGN-UP"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="30dp" />
+
+        <EditText
+            android:layout_width="290dp"
+            android:layout_height="45dp"
+
+            android:layout_marginTop="40dp"
+            android:background="@drawable/textview1"
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:hint="enter username"
+            android:paddingLeft="10dp" />
 
         <EditText
             android:layout_width="290dp"
@@ -66,17 +76,26 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/password"
-            android:hint="enter password"
-            android:paddingLeft="10dp"
-            android:inputType="textPassword"/>
+            android:hint="enter username"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:layout_width="290dp"
+            android:layout_height="45dp"
+
+            android:layout_marginTop="15dp"
+            android:background="@drawable/textview1"
+            android:drawableLeft="@drawable/password"
+            android:hint="enter username"
+            android:paddingLeft="10dp" />
 
         <Button
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginLeft="110dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/top"
-            android:onClick="login" />
+            android:onClick="signup" />
 
 
     </LinearLayout>
@@ -105,11 +124,8 @@
             android:layout_marginTop="10dp"
             android:text="Sign up "
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="18dp"
-            android:onClick="signupp"/>
+            android:textSize="18dp" />
 
 
     </LinearLayout>
-
-
 </RelativeLayout>

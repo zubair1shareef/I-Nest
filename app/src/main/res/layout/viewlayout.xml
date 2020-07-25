@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/common_google_signin_btn_text_dark_default"
-    android:orientation="vertical"
-
-    android:layout_marginBottom="5dp"
     android:layout_centerInParent="true"
-    android:layout_marginVertical="4dp"
     android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/layout_background"
+    android:orientation="vertical"
 
     >
 
@@ -20,6 +19,7 @@
         android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:paddingLeft="20dp">
+
         <ImageView
             android:id="@+id/profile"
             android:layout_width="20dp"
@@ -45,11 +45,10 @@
             android:id="@+id/rollnoo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
             android:layout_marginRight="10dp"
             android:text="date"
-            android:textSize="10dp"
-            android:layout_marginLeft="100dp"/>
-
+            android:textSize="10dp" />
 
 
     </LinearLayout>
@@ -59,37 +58,38 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/def2"
-        tools:srcCompat="@tools:sample/backgrounds/scenic"
-        android:layout_marginBottom="20dp"/>
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
+        android:id="@+id/ddddee"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
-        android:id="@+id/ddddee"
         android:hint="hhere hint"
         android:textColor="@color/common_google_signin_btn_text_dark_focused" />
 
-   <LinearLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       >
-       <Button
-           android:layout_width="80dp"
-           android:layout_height="39dp"
-           android:text="fire"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-           />
-       <Button
-           android:layout_width="80dp"
-           android:layout_height="39dp"
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="39dp"
+            android:text="fire"
+
+            />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="39dp"
 
 
-           android:text="report"
-           android:layout_marginLeft="200dp"/>
-   </LinearLayout>
+            android:layout_marginLeft="200dp"
+            android:text="report" />
+    </LinearLayout>
 
 
 </LinearLayout>
