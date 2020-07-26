@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseRecyclerOptions<Infom> option;
     private FirebaseRecyclerAdapter<Infom, Myviewholder> adapter;
+    FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     String na,ro,de,im;
 
@@ -102,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
         };
         adapter.startListening();
         recyclerView.setAdapter(adapter);
+
+
+        mAuth = FirebaseAuth.getInstance();
+
+        Toast.makeText(MainActivity.this,mAuth.getUid (),
+                Toast.LENGTH_SHORT).show();
 
     }
     @Override

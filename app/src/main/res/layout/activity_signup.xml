@@ -58,43 +58,47 @@
             android:textSize="30dp" />
 
         <EditText
+            android:id="@+id/emails"
             android:layout_width="290dp"
+
+
             android:layout_height="45dp"
-
-
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-            android:hint="enter username"
+            android:hint="enter email"
             android:paddingLeft="10dp" />
 
         <EditText
+            android:id="@+id/fullname"
             android:layout_width="290dp"
+
+
             android:layout_height="45dp"
-
-
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-            android:hint="enter username"
+            android:hint="full name"
             android:paddingLeft="10dp" />
 
         <EditText
+            android:id="@+id/passwords"
             android:layout_width="290dp"
-            android:layout_height="45dp"
 
+            android:layout_height="45dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/password"
-            android:hint="enter username"
+            android:hint="password"
             android:paddingLeft="10dp" />
 
         <EditText
+            android:id="@+id/password2s"
             android:layout_width="290dp"
-            android:layout_height="45dp"
 
+            android:layout_height="45dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/textview1"
             android:drawableLeft="@drawable/password"
-            android:hint="enter username"
+            android:hint="reenter password"
             android:paddingLeft="10dp" />
 
         <Button

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,6 +37,7 @@ import java.util.UUID;
 public class Main2Activity extends AppCompatActivity {
 EditText name,rollno,decp;
 ImageView imageup;
+    FirebaseAuth mAuth;
 String nam,rol,des,imageurl;
 
     private Uri filePath;
@@ -130,12 +132,17 @@ public  void pushtodatabse(){
     //rol=rollno.getText().toString();
     des=decp.getText().toString();
 
+
+    mAuth = FirebaseAuth.getInstance();
+
+
+
     String  currentDateTimeString = DateFormat.getDateTimeInstance()
             .format(new Date());
 
     Infom info=new Infom(nam,currentDateTimeString,des,imageurl);
     String key = myRef.push().getKey();
-    myRef.child(key).setValue(info);
+    myRef.child(mAuth.getUid()).setValue(info);
 
 }
 
