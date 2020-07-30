@@ -8,18 +8,7 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:background="@android:drawable/ic_menu_add"
-        android:onClick="add"
-        tools:layout_editor_absoluteX="287dp"
 
-        tools:layout_editor_absoluteY="667dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -33,6 +22,22 @@
         app:stackFromEnd="true"
         app:reverseLayout="true"
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:background="@android:drawable/ic_menu_add"
+        android:clickable="true"
+        android:onClick="add"
+        app:backgroundTint="@color/blueg"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+
+        tools:layout_editor_absoluteX="287dp"
+        tools:layout_editor_absoluteY="667dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

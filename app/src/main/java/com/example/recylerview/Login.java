@@ -49,15 +49,15 @@ public class Login extends AppCompatActivity {
     {    Email=email.getText().toString().trim();
          Password=password.getText().toString();
         mAuth = FirebaseAuth.getInstance();
-     /*   Intent intent=new Intent(Login.this,MainActivity.class);
+      Intent intent=new Intent(Login.this,MainActivity.class);
         Pair[] pairs=new Pair[2];
         pairs[0]=new Pair<View ,String>(login,"open");
         pairs[1]=new Pair<View ,String>(linearLayout,"layout");
         ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(Login.this,pairs);
         startActivity(intent,options.toBundle());
-        finish();*/
+        finish();
 
-
+/*
         mAuth.signInWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
 
                         // ...
                     }
-                });
+                });*/
 
 
 

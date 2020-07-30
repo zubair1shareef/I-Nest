@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     private RecyclerView recyclerView;
     String na,ro,de,im;
+    private int lastpostion=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                  myviewholder.rollno.setText(infom.getRollno());
                  myviewholder.desp.setText(infom.getDescp());
                  Picasso.get().load(infom.getImage()).into(myviewholder.imageView);
+                 setAnimations(myviewholder.itemView,i);
             }
 
             @NonNull
@@ -119,7 +123,18 @@ public class MainActivity extends AppCompatActivity {
     }
     public void add(View v)
     {
-        Intent intent=new Intent(MainActivity.this,Main2Activity.class);
+        Intent intent=new Intent(MainActivity.this,Addpostworld.class);
         startActivity(intent);
+    }
+
+
+    public void setAnimations(View toAnimate,int position)
+    {
+        if (position>lastpostion){
+            ScaleAnimation animation=new ScaleAnimation(0.0f,1.0f,0.0f,1.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+            animation.setDuration(190);
+            toAnimate.startAnimation(animation);
+            lastpostion=position;
+        }
     }
 }
