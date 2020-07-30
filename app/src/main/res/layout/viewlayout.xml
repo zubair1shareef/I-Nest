@@ -24,7 +24,7 @@
             android:id="@+id/profile"
             android:layout_width="20dp"
             android:layout_height="30dp"
-            app:srcCompat="@drawable/googleg_standard_color_18"
+            app:srcCompat="@drawable/ic_person_outline_black_24dp"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -34,12 +34,14 @@
             android:paddingLeft="10dp"
             android:text="username"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="17dp" />
+            android:textSize="17dp"
+            />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="---" />
+            android:layout_height="25dp"
+            app:srcCompat="?android:attr/textCheckMarkInverse"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/rollnoo"

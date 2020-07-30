@@ -10,6 +10,9 @@ public class Signupdata {
         this.image=image;
     }
 
+    public Signupdata() {
+    }
+
     public String getName() {
         return name;
     }

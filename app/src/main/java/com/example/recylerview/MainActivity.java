@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference refe=FirebaseDatabase.getInstance().getReference().child("Rec");
+        Query refe=FirebaseDatabase.getInstance().getReference().child("Rec").orderByChild("rollno");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Toast.makeText(MainActivity.this,"loading...",
@@ -108,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        Toast.makeText(MainActivity.this,mAuth.getUid (),
-                Toast.LENGTH_SHORT).show();
+
 
     }
     @Override

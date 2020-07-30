@@ -3,6 +3,7 @@ package com.example.recylerview;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -67,7 +69,13 @@ public class Signup extends AppCompatActivity {
                         DatabaseReference myRef = database.getReference("Users");
                         Signupdata data=new Signupdata(namee,email,city,image);
 
+
                         myRef.child (mAuth.getUid ()).setValue(data);
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(namee).build();
+
+                        user.updateProfile(profileUpdates);
+                        finish();
 
 
                     } else {

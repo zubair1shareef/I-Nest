@@ -5,13 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="680dp">
+
+
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/frontimage"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        app:srcCompat="@drawable/ic_person_outline_black_24dp"
+        tools:srcCompat="@drawable/ic_person_outline_black_24dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:id="@+id/profile_name"
+        android:textSize="40dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="90dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hyderabad"
+        android:textSize="20dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="150dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_marginTop="370dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My post"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="privarcy"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About app"/>
+
+    </LinearLayout>
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/back"
+        android:background="@color/blueg"
 
 
         app:itemIconTint="@drawable/selector"

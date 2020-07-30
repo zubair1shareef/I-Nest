@@ -5,13 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Local">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:background="@android:drawable/ic_menu_add"
+        android:onClick="add"
+        tools:layout_editor_absoluteX="287dp"
+
+        tools:layout_editor_absoluteY="667dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="@color/grey"
+        android:transitionName="layout"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/back"
+        android:background="@color/blueg"
 
 
         app:itemIconTint="@drawable/selector"

@@ -30,6 +30,8 @@
         android:transitionName="layout"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

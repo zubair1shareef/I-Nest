@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,6 +38,7 @@ import java.util.UUID;
 public class Main2Activity extends AppCompatActivity {
 EditText name,rollno,decp;
 ImageView imageup;
+int count=10000;
     FirebaseAuth mAuth;
 String nam,rol,des,imageurl;
 
@@ -56,6 +58,10 @@ String nam,rol,des,imageurl;
         imageup=(ImageView) findViewById(R.id.imageView2);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+
+
+
 
 
         imageup.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +133,11 @@ String nam,rol,des,imageurl;
     }
 public  void pushtodatabse(){
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Rec");
-    nam=name.getText().toString();
+    DatabaseReference myRef = database.getReference("Hyderabad");
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String nam = user.getDisplayName();
+    //nam=name.getText().toString();
+
     //rol=rollno.getText().toString();
     des=decp.getText().toString();
 
@@ -142,7 +151,7 @@ public  void pushtodatabse(){
 
     Infom info=new Infom(nam,currentDateTimeString,des,imageurl);
     String key = myRef.push().getKey();
-    myRef.child(mAuth.getUid()).setValue(info);
+    myRef.child(key).setValue(info);
 
 }
 
