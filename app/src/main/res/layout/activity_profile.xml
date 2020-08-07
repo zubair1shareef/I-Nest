@@ -13,14 +13,26 @@
 
 
     </ScrollView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="205dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="100dp"
+        app:cardCornerRadius="100dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/back">
+        <ImageView
+            android:id="@+id/frontimage"
+            android:layout_width="215dp"
+            android:layout_height="215dp"
 
-    <ImageView
-        android:id="@+id/frontimage"
-        android:layout_width="1500dp"
-        android:layout_height="520dp"
+            app:srcCompat="@drawable/img"
+            tools:srcCompat="@drawable/ic_person_outline_black_24dp" />
+    </com.google.android.material.card.MaterialCardView>
 
-        app:srcCompat="@drawable/myprofile"
-        tools:srcCompat="@drawable/ic_person_outline_black_24dp" />
+
+
+
 
     <TextView
         android:id="@+id/profile_name"
@@ -49,6 +61,7 @@
         android:orientation="vertical"
         android:paddingLeft="65dp"
         android:paddingTop="30dp">
+
 
         <Button
             android:layout_width="280dp"

@@ -2,22 +2,56 @@ package com.example.recylerview;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.SearchView;
+import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 public class Search extends AppCompatActivity {
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseRecyclerOptions<Infom> option;
+    private FirebaseRecyclerAdapter<Infom, Myviewholder> adapter;
+    FirebaseAuth mAuth;
+    private RecyclerView recyclerView;
+    SearchView searchView;
+    String na,ro,de,im;
+    private int lastpostion=-1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+
+        Infom in=new Infom();
+        na=in.getName();
+        ro=in.getRollno();
+        de=in.getDescp();
+        im=in.getImage();
+        Data dataAccess =new Data();
+
+
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.search);
+        searchView=(SearchView) findViewById(R.id.searchh);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -55,6 +89,61 @@ public class Search extends AppCompatActivity {
 
 
 
+        recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        Query refe=FirebaseDatabase.getInstance().getReference().child("Hyderabad").orderByChild("rollno");
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Toast.makeText(Search.this,"loading...",
+                Toast.LENGTH_LONG).show();
+        option=new FirebaseRecyclerOptions.Builder<Infom>().setQuery(refe,Infom.class).build();
+        adapter=new FirebaseRecyclerAdapter<Infom, Myviewholder>(option) {
+            @Override
+            protected void onBindViewHolder(@NonNull Myviewholder myviewholder, int i, @NonNull Infom infom) {
+                myviewholder.name.setText(infom.getName());
+                myviewholder.rollno.setText(infom.getRollno());
+                myviewholder.desp.setText(infom.getDescp());
+                Picasso.get().load(infom.getImage()).into(myviewholder.imageView);
+                setAnimations(myviewholder.itemView,i);
+            }
+
+            @NonNull
+            @Override
+            public Myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View v  =  LayoutInflater.from(parent.getContext()).inflate(R.layout.viewlayout,parent,false);
+                return new Myviewholder(v);
+            }
+        };
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+
+
+        mAuth = FirebaseAuth.getInstance();
+
+
+
+
+
+
 
     }
+    public void setAnimations(View toAnimate,int position)
+    {
+        if (position>lastpostion){
+            ScaleAnimation animation=new ScaleAnimation(0.0f,1.0f,0.0f,1.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+            animation.setDuration(190);
+            toAnimate.startAnimation(animation);
+            lastpostion=position;
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+
 }
+
+
+

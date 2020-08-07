@@ -10,10 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search"
+        android:id="@+id/searchh"
 
 
         android:queryHint="Search from here"
         android:layout_marginTop="20dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_marginTop="90dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="@color/cardview_light_background"
+        android:transitionName="layout"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

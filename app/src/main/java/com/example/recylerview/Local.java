@@ -41,6 +41,9 @@ public class Local extends AppCompatActivity {
         ro=in.getRollno();
         de=in.getDescp();
         im=in.getImage();
+        Data dataAccess =new Data();
+        Toast.makeText(Local.this,dataAccess.getEmail(),
+                Toast.LENGTH_LONG).show();
 
 
 

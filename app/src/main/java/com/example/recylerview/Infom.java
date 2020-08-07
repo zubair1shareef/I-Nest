@@ -1,13 +1,14 @@
 package com.example.recylerview;
 
 public class Infom {
-    String name,rollno,descp,image;
+    String name,rollno,descp,image,sorting;
 
-    public Infom(String name, String rollno ,String descp,String image) {
+    public Infom(String name, String rollno ,String descp,String image,String sorting) {
         this.name = name;
         this.rollno = rollno;
         this.descp=descp;
         this.image=image;
+        this.sorting=sorting;
     }
 
     public Infom() {
@@ -44,4 +45,13 @@ public class Infom {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getSorting() {
+        return sorting;
+    }
+
+    public void setSorting(String sorting) {
+        this.sorting = sorting;
+    }
 }
+

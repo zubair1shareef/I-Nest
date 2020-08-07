@@ -101,6 +101,14 @@
             android:hint="reenter password"
             android:paddingLeft="10dp" />
 
+        <ImageView
+            android:id="@+id/profielimageupload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="uploadimage"
+            app:srcCompat="@drawable/ic_person_outline_black_24dp"
+            tools:srcCompat="@drawable/ic_person_outline_black_24dp" />
+
         <Button
             android:layout_width="60dp"
             android:layout_height="50dp"

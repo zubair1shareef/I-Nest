@@ -148,8 +148,9 @@ public  void pushtodatabse(){
 
     String  currentDateTimeString = DateFormat.getDateTimeInstance()
             .format(new Date());
+    String sort="0";
 
-    Infom info=new Infom(nam,currentDateTimeString,des,imageurl);
+    Infom info=new Infom(nam,currentDateTimeString,des,imageurl,sort);
     String key = myRef.push().getKey();
     myRef.child(key).setValue(info);
 

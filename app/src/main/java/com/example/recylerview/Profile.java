@@ -16,14 +16,21 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
     TextView name;
     String displayname;
+    DatabaseReference databaseReference;
     ImageView profileimage;
     private Animation mAnimation;
     @Override
@@ -59,9 +66,9 @@ public class Profile extends AppCompatActivity {
         mAnimation.setFillAfter(true);
         mAnimation.setRepeatCount(-1);
         mAnimation.setRepeatMode(Animation.REVERSE);
-        profileimage.setAnimation(mAnimation);
+        //profileimage.setAnimation(mAnimation);
         //profileimage.setAnimation(animation);
-        profileimage.setVisibility(View.VISIBLE);
+       // profileimage.setVisibility(View.VISIBLE);
 
 
 
@@ -104,5 +111,27 @@ public class Profile extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void dataacess()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        String city,email,image,name;
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final DataAccess dataa = dataSnapshot.getValue(DataAccess.class);
+                // use from here
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -19,9 +19,13 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     String na,ro,de,im;
     private int lastpostion=-1;
+    public String amil;
+
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +52,49 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.world);
+        dataacess();
+        DataAccess dataAccess=new DataAccess();
+
+///////////////
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        String city,email,image,name;
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final DataAccess dataa = dataSnapshot.getValue(DataAccess.class);
+                amil= dataa.getEmail().toString();
+                Toast.makeText(MainActivity.this,amil,
+                        Toast.LENGTH_LONG).show();
+                Data signupdata=new Data(dataa.getCity().toString(),dataa.getEmail().toString(),dataa.getImage(),dataa.getName());
+                // String kk="ksldl";
+                //signupdata.setEmail(kk);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+     ///////////////
+
+
+
+
+
+
+
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -137,4 +185,12 @@ public class MainActivity extends AppCompatActivity {
             lastpostion=position;
         }
     }
+
+    public void dataacess()
+    {
+
+
+    }
+
+
 }

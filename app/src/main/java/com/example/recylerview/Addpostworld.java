@@ -30,6 +30,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -38,7 +39,7 @@ public class Addpostworld extends AppCompatActivity {
     ImageView imageup;
     int count=10000;
     FirebaseAuth mAuth;
-    String nam,rol,des,imageurl;
+    String nam,rol,des,imageurl,sorting,atimm,ctime;
 
     private Uri filePath;
 
@@ -142,13 +143,18 @@ public class Addpostworld extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        atimm = dateFormat.format(new Date());
+        ctime="24:00";
+
+
 
 
 
         String  currentDateTimeString = DateFormat.getDateTimeInstance()
                 .format(new Date());
 
-        Infom info=new Infom(nam,currentDateTimeString,des,imageurl);
+        Infom info=new Infom(nam,currentDateTimeString,des,imageurl,sorting);
         String key = myRef.push().getKey();
         myRef.child(key).setValue(info);
 
